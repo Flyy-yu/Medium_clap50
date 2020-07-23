@@ -1,0 +1,29 @@
+{
+	"manifest_version": 2,
+	"name": "auto_clap",
+	"version": "1.0.0",
+	"description": "one click to clap 50 times",
+	"icons":
+	{
+		"16": "img/icon.png",
+		"48": "img/icon.png",
+		"128": "img/icon.png"
+	},
+	"page_action":
+	{
+		"default_icon": "img/icon.png",
+		"default_title": "auto_clap",
+		"default_popup": "popup.html"
+	},
+	"permissions":
+	["declarativeContent","activeTab","cookies","*://*.medium.com/"],
+	"background":
+	{
+		"scripts": ["js/background.js"]
+	},
+	"content_scripts": [{
+    "matches": ["https://medium.com/*"],
+    "js": ["js/content.js"],
+    "all_frames": true
+  	}]
+}
